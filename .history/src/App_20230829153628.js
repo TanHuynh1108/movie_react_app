@@ -6,7 +6,14 @@ import MovieCard from './MovieCard';
 
 const API_URL = 'http://www.omdbapi.com?apikey=24694db';
 const App = () => {
-    
+    const searchInput = document.getElementById('searchInput');
+    const searchIcon = document.getElementById('searchIcon');
+
+    searchInput.addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        searchIcon.click();
+    }
+    });
     const [movies, setMovies] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const searchMovies = async (title) => {
@@ -39,6 +46,7 @@ const App = () => {
                     src={SearchIcon} 
                     alt="search" 
                     onClick={() => searchMovies(searchTerm)}
+                    onkeydown="search()"
                 />
             </div>
             {

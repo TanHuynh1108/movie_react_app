@@ -3,7 +3,6 @@ import './App.css'
 import SearchIcon from './search.svg';
 import MovieCard from './MovieCard';
 // 24694db
-
 const API_URL = 'http://www.omdbapi.com?apikey=24694db';
 const App = () => {
     
@@ -29,16 +28,15 @@ const App = () => {
 
             <div className="search">
                 <input 
-                    id="searchInput"
                     placeholder="Search for movies" 
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <img 
-                    id="searchIcon"
                     src={SearchIcon} 
                     alt="search" 
                     onClick={() => searchMovies(searchTerm)}
+                    onkeydown="search()"
                 />
             </div>
             {

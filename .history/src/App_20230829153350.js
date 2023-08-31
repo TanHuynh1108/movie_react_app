@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './App.css'
 import SearchIcon from './search.svg';
 import MovieCard from './MovieCard';
+import functionApp from './functionApp.js';
 // 24694db
 
 const API_URL = 'http://www.omdbapi.com?apikey=24694db';
@@ -39,6 +40,7 @@ const App = () => {
                     src={SearchIcon} 
                     alt="search" 
                     onClick={() => searchMovies(searchTerm)}
+                    onkeydown="search()"
                 />
             </div>
             {

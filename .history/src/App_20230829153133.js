@@ -3,7 +3,14 @@ import './App.css'
 import SearchIcon from './search.svg';
 import MovieCard from './MovieCard';
 // 24694db
+const searchInput = document.getElementById('searchInput');
+const searchIcon = document.getElementById('searchIcon');
 
+searchInput.addEventListener('keyup', function(event) {
+  if (event.key === 'Enter') {
+    searchIcon.click();
+  }
+});
 const API_URL = 'http://www.omdbapi.com?apikey=24694db';
 const App = () => {
     
@@ -39,6 +46,7 @@ const App = () => {
                     src={SearchIcon} 
                     alt="search" 
                     onClick={() => searchMovies(searchTerm)}
+                    onkeydown="search()"
                 />
             </div>
             {

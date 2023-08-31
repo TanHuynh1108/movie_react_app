@@ -6,6 +6,13 @@ import MovieCard from './MovieCard';
 
 const API_URL = 'http://www.omdbapi.com?apikey=24694db';
 const App = () => {
+    this.searchInputRef = React.createRef();
+    this.searchIconRef = React.createRef();
+    handleKeyUp = (event) => {
+        if (event.key === 'Enter') {
+          this.searchIconRef.current.click();
+        }
+      }
     
     const [movies, setMovies] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -33,12 +40,16 @@ const App = () => {
                     placeholder="Search for movies" 
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
+                    onKeyUp={this.handleKeyUp}
+                    ref={this.searchInputRef}
                 />
                 <img 
                     id="searchIcon"
                     src={SearchIcon} 
                     alt="search" 
                     onClick={() => searchMovies(searchTerm)}
+                    ref={this.searchIconRef}
+
                 />
             </div>
             {
